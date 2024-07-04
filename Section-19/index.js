@@ -85,6 +85,6 @@ $("button").on("click", function () {
     $("a").slideToggle();
 }); 
 */
-$("button").on("click", function () {
+$(".btn").on("click", function () {
     $("h1").slideUp().slideDown().animate({opacity: 0.5}); // css property values are always numeric
 }); 
