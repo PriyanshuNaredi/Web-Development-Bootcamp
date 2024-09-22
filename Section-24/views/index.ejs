@@ -1,0 +1,22 @@
+<%- include("template.ejs") %>
+<head>
+    <title>Your Blog</title>
+</head>
+<body>
+    <h1>Hey,</h1>
+   <% if (locals.title != 0) { %>
+        <% for( let index = 0; index < title.length; index++ ) { %>
+            <% var t = title[index]  %>
+            <li><a href="/<%=index%>"><%= t %></href></li>
+        <% } %>
+   <% } else{ %>
+        <h1> Be the First One to Add Blog </h1>
+    <% } %>
+
+    <form action="/new-post" method="POST">
+          <input type="submit" value="Add Blog">
+    </form>
+
+
+</body>
+</html>

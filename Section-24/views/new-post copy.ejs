@@ -1,0 +1,26 @@
+<%- include("template.ejs") %>
+
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <!-- <form action="/" method="POST">
+      <input type="text" name="title" placeholder="title of your blog" /><br>
+      <textarea type="text" name="blog" placeholder="write your blog here...." ></textarea></br>
+      <input type="submit" value="OK" />
+    </form> -->
+
+    <form action="/" method="POST">
+        <div class="form-group">
+            <label>Title</label>
+            <input type="text" class="form-control" name ="title" placeholder="Your Blog Title" required>
+        </div>
+        <div class="form-group">
+            <label>Blog textarea</label>
+            <textarea class="form-control" name="blog" rows="4" cols="100" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    
+</body>
+</html>

@@ -1,0 +1,23 @@
+<%- include("template.ejs") %>
+
+<head>
+    <title>Your Blog Post</title>
+</head>
+<body>
+
+   <% if (locals.title && locals.blog) { %>
+        <h1> <%= title %> </h1>
+        <h3> <%= blog %> </h3>
+   <% } else{ %>
+        <h1> Be the First One to Add Blog </h1>
+    <% } %>
+
+    <form>
+        <button class="btn btn-dark btn-sm"><a href="/" >Home</a></button>
+        <button class="btn btn-dark btn-sm"><a href="/new-post" >Add new Blog</a></button>
+        <button class="btn btn-dark btn-sm"><a href="/delete/<%= i %>" >Delete This Blog</a></button>
+
+    </form>
+
+</body>
+</html>
