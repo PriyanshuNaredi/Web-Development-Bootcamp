@@ -30,7 +30,14 @@ app.post("/", (req, res) => {
     console.log(blogTitle);
     res.render(__dirname + "/views/index.ejs", { title: blogTitle, blog: blogPost });
 });
-
+/* new-post can be handled in two ways  
+OtherWay-
+// This will redirect from "/" to "/new-post" page 
+app.post("/new-post", (req, res) => {
+  res.redirect('/new-post');
+  res.render(__dirname + "/views/new-post.ejs");
+});
+*/
 // This will redirect from "/" to "/new-post" page 
 app.post("/new-post", (req, res) => {
   res.redirect('/new-post');
