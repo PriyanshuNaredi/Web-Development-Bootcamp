@@ -9,7 +9,11 @@ const app = express();
 const port = 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
-
+/* 
+Express Cargo-Bundled body parser 
+https://expressjs.com/en/api.html#express.json
+app.use(express.json());
+*/
 app.get("/", (req, res) => {
   console.log(__dirname + "/public/index.html");
   res.sendFile(__dirname + "/public/index.html");
