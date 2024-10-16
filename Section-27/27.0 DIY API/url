@@ -1,4 +1,4 @@
 "/some_end_point/:id" : to get this id we will use parseInt(req.params.id)
-"/some_end_point?:id" : to get this id we will use parseInt(req.query.id)
+"/some_end_point" : to get this id we will use req.query.type
 
 parseInt -> is used to check the type of :id 
