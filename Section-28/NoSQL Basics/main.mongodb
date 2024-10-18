@@ -1,0 +1,14 @@
+// Insert Operation
+db.products.insertOne({_id:1,name:'Pen',price:20})
+db.products.insertOne({_id:2,name:'Pencil',price:10})
+
+    // Add Multiple Entries
+    /*
+    db.products.insertMany([
+    {_id:1,name:'Pen',price:20},
+    {_id:2,name:'Pencil',price:10}
+    ]);
+    */
+
+// Show Data
+db.products.find()
