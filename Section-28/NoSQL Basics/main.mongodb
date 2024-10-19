@@ -12,3 +12,68 @@ db.products.insertOne({_id:2,name:'Pencil',price:10})
 
 // Show Data
 db.products.find()
+    // Conditional Search - on Name
+db.products.find({ name: "Pencil" });
+    // Conditional Search - on Price
+db.products.find({ price: { $gt: 1 } });
+    // Conditional Search with only selected data view
+db.products.find({ _id: 1 }, { name: 1, _id: 0 });
+
+// Update 
+db.products.updateOne({ _id: 1 }, { $set: { stock: 32 }});
+
+db.products.updateOne({ _id: 2 }, { $set: { stock: 12 }});
+
+db.products.updateMany(
+  { _id: 1 },  { $set: { stock: 32 } },
+  { _id: 2 },  { $set: { stock: 12 } }
+);
+
+db.products.find();
+
+// Delete Entry
+db.products.deleteOne({ _id: 2 });
+
+// Relational Db -  Many to One Mapping 
+db.products.insert({
+  _id: 3,
+  name: "Rubber",
+  price: 20,
+  reviews: [
+    {
+      authorName: "Sachine",
+      rating: 5,
+      review: "Best",
+    },
+    {
+      authorName: "Aman",
+      rating: 4,
+      review: "Could be better",
+    },
+  ],
+});
+
+db.products.find();
+
+db.products.insert({
+  _id: 2,
+  name: "Pencil",
+  price: 10,
+  stock: 12,
+  review: [
+    {
+      authorName: "Shruti",
+      rating: 5,
+      review: "Saiko",
+    },
+    {
+      authorName: "Naman",
+      rating: 5,
+      review: "Just a pencil, what to say",
+    },
+  ],
+});
+
+db.products.find();
+
+
