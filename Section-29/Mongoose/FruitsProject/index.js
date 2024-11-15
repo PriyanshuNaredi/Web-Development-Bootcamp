@@ -84,6 +84,13 @@ Fruit.find().then((data) => {
   });
 });
 
+async function printFruitsSchema(params) {
+  const result = await Fruit.find();
+  console.log(result);
+  
+}
+printFruitsSchema();
+
 const personSchema = new mongoose.Schema({
   name: String,
   age: Number,
@@ -137,7 +144,7 @@ async function addRelation() {
 
 
 /*
-// Mongodb without data validation
+                                    // Mongodb without data validation
 const fruitSchema = new mongoose.Schema({
     name: String,
     rating: Number,
@@ -194,7 +201,8 @@ Fruit.find().then((data) => {
 
 */
 
-
+/*
+                                              // Old Code
 // const fruitSchema = new Schema({
 //   name: {
 //     type: String,
