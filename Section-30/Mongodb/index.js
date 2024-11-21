@@ -34,10 +34,7 @@ const listSchema = {
 
 const List = new mongoose.model("List", listSchema);
 
-async function addItems(item,list) {
-  if (list){
-    
-  }
+async function addItems(item) {
   try {
     const existing = await Item.findOne({ name: item.name });
     if (existing) {
