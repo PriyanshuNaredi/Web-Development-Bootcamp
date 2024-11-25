@@ -1,0 +1,35 @@
+### Passport
+
+1. **Import Passport & Session:**
+
+   ```javascript
+   import session from "express-session";
+   import passport from "passport";
+   import { Strategy } from "passport-local";
+   ```
+
+2. **Init Session:**
+
+   ```javascript
+   app.use(
+     session({
+       secret: "SECRET",
+       resave: false,
+       saveUninitialized: true,
+       cookie: {
+         maxAge: 1000 * 60 * 60 * 24,
+       },
+     })
+   );
+   ```
+3. **Init Passport:**
+    ```javascript
+    app.use(passport.initialize());
+    app.use(passport.session());
+    ```
+4. **Init Passport:**
+    ```javascript
+    app.use(passport.initialize());
+    app.use(passport.session());
+    ```
+5. 

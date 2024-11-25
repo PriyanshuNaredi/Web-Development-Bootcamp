@@ -12,6 +12,7 @@ const saltRounds = 10;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
+// Creating Local Sessions
 app.use(
   session({
     secret: "SECRET",
@@ -49,7 +50,7 @@ app.get("/register", (req, res) => {
 
 app.get("/secrets", (req, res) => {
   console.log(req.user);
-
+// Check if user is Authenticated, Passports Express func
   if (req.isAuthenticated()) {
     res.render("secrets.ejs");
   } else {
@@ -79,6 +80,7 @@ app.post("/register", async (req, res) => {
             "INSERT INTO users (email, password) VALUES ($1, $2) RETURNING *",
             [email, hash]
           );
+  // after new user registration, storing value in the cookie to create local session, Passport Express func
           const user = result.rows[0];
           req.login(user,(err) => {
             console.log(err);
@@ -102,6 +104,7 @@ app.post(
 
 passport.use(
   new Strategy(async function verify(username, password, cb) {
+  // username, password are obtained directly from the ejs forms post route
     console.log(username, password);
     try {
       const result = await db.query("SELECT * FROM users WHERE email = $1", [
@@ -130,10 +133,12 @@ passport.use(
   })
 );
 
+// used to store values in cookies
 passport.serializeUser((user, cb) => {
   cb(null, user);
 });
 
+// used to retrieve stored values from cookies 
 passport.deserializeUser((user, cb) => {
   cb(null, user);
 });
