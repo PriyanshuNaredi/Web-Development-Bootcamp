@@ -6,7 +6,9 @@ function App() {
   const [Time, getTime] = React.useState("TIME");
 
   function getCurrTime() {
-    getTime(time);
+    const now = new Date().toLocaleTimeString().substring(0, 7);
+
+    getTime(now);
   }
 
   setInterval(getCurrTime, 1000);
