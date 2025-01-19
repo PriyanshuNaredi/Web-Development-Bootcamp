@@ -1,17 +1,15 @@
 import React from "react";
 
 function App() {
-  let time = new Date().toLocaleTimeString().substring(0, 7);
-  console.log(time);
+  // let time = new Date().toLocaleTimeString().substring(0, 7);
+  // console.log(time);
   const [Time, getTime] = React.useState("TIME");
 
   function getCurrTime() {
     const now = new Date().toLocaleTimeString().substring(0, 7);
-
     getTime(now);
+    setInterval(getCurrTime, 1000);
   }
-
-  setInterval(getCurrTime, 1000);
 
   return (
     <div className="container">
