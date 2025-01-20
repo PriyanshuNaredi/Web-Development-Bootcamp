@@ -1,0 +1,68 @@
+# To-Do List Application
+
+This application is a simple To-Do List built with React. It demonstrates the use of the ES6 spread operator and React hooks to manage state.
+
+## Features
+
+1. When new text is written into the input, its state is saved.
+2. When the add button is pressed, the current data in the input is added to an array.
+3. The `<ul>` displays all the array items as `<li>` elements.
+
+## Code Explanation
+
+### App Component
+
+The `App` component manages the state of the input text and the list of items.
+
+```jsx
+import React, { useState } from "react";
+
+function App() {
+  // save data from input text field
+  const [name, addItem] = useState("");
+  function handleChange(event) {
+    addItem(event.target.value);
+  }
+  // add the value from input text field to the array
+  const [items, setNewItem] = useState([]);
+  function handleClick() {
+    setNewItem((prevValue) => {
+      return [...prevValue, name];
+    });
+    addItem("");
+  }
+  var id = 0;
+  return (
+    <div className="container">
+      <div className="heading">
+        <h1>To-Do List</h1>
+      </div>
+      <div className="form">
+        <input type="text" onChange={handleChange} value={name} />
+        <button onClick={handleClick}>
+          <span>Add</span>
+        </button>
+      </div>
+      <div>
+        <ul>
+          {items.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+```
+
+### Key Points
+
+- The `useState` hook is used to manage the state of the input text (`name`) and the list of items (`items`).
+- The `handleChange` function updates the state of the input text whenever the user types in the input field.
+- The `handleClick` function adds the current input text to the list of items using the spread operator and then clears the input field.
+- The `map` function is used to render each item in the list as an `<li>` element.
+
+For more information on the ES6 spread operator, refer to the [MDN Web Docs: Spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax).
+
